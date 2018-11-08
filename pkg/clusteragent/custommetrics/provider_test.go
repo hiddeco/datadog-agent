@@ -154,7 +154,7 @@ func TestGetExternalMetric(t *testing.T) {
 			}
 			output, err := dp.GetExternalMetric(test.compared.namespace, test.compared.labels.AsSelector(), test.compared.name)
 			require.NoError(t, err)
-			require.Equal(t, len(output.Items), len(test.expected))
+			require.Equal(t, len(test.expected), len(output.Items))
 			// GetExternalMetric should only return one metric
 			if len(output.Items) == 1 {
 				require.Equal(t, output.Items[0].MetricName, test.expected[0].MetricName)
